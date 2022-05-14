@@ -26,6 +26,7 @@
     "@nestjs/passport": "^8.2.1",
     "@nestjs/platform-express": "^8.0.0",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.13",
