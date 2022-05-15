@@ -30,6 +30,7 @@ export class MoviesService {
       const filteredMovies = movies.filter((movie) =>
         movie.created_at.getMonth() === actualMonth ? true : false,
       );
+
       return filteredMovies.length === 5 ? false : true;
     } catch (err) {
       console.error('An error ocurred:', err);
@@ -38,7 +39,7 @@ export class MoviesService {
   }
 
   async postUserMovie(user: UserPayload, movieTitle: string) {
-    if (user.role === 'basic' && (await this.canUserPostMovie(user)))
+    if (user.role === 'basic' && !(await this.canUserPostMovie(user)))
       return 'You have already posted 5 movies this month. Get premium to post more movies.';
 
     try {
