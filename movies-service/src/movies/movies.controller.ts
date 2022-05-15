@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import { Movie } from 'src/entities/movie.entity';
 import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
 import { MoviesService } from './movies.service';
 
@@ -8,13 +9,13 @@ export class MoviesController {
 
   @UseGuards(JwtAuthGuard)
   @Get()
-  getUserMovies(@Req() req): string {
+  async getUserMovies(@Req() req): Promise<Movie[] | string> {
     return this.moviesService.getUserMovies(req.user);
   }
 
   @UseGuards(JwtAuthGuard)
   @Post()
-  async postMovie(@Req() req, @Body() body): Promise<any> {
+  async postMovie(@Req() req, @Body() body): Promise<string> {
     return await this.moviesService.postUserMovie(req.user, body.movieTitle);
   }
 }
