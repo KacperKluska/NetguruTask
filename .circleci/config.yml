@@ -30,7 +30,7 @@ jobs:
       - run:
           app-dir: ~/project/movies-services
           name: Run tests
-          command: npm run test
+          command: npm test
 
 workflows:
   # Below is the definition of your workflow.
