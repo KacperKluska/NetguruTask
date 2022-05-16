@@ -26,6 +26,7 @@ jobs:
       # The orb install-packages step will also automatically cache them for faster future runs.
       - node/install-packages:
           # If you are using yarn, change the line below from "npm" to "yarn"
+          app-dir: ~/netgurutask/movies-service
           pkg-manager: npm
       - run:
           name: Run tests
