@@ -11,14 +11,19 @@ You need to have `docker` and `docker-compose` installed on your computer to run
 3. You have to provide 4 env variables to run the app:
 
 `JWT_SECRET` - is used to validate user authorization
+
 `DB_USER` - defines database username
+
 `DB_PASSWORD` - defines database password
+
 `DB_DATABASE` - defines database name
 
 There is also 3 optional env variables:
 
 `MOVIES_PORT` - overrides movies-service port (default: 3001)
+
 `DB_PORT` - overrides database port (default: 5432)
+
 `AUTH_PORT` - overrides auth-service port (default: 3000)
 
 ```

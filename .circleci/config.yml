@@ -18,7 +18,6 @@ jobs:
       - image: cimg/node:16.10
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
-    working_directory: ~/project/movies-service
     steps:
       # Checkout the code as the first step.
       - checkout
@@ -29,7 +28,7 @@ jobs:
           app-dir: ~/project/movies-service
           pkg-manager: npm
       - run:
-          app-dir: ~/project/movies-service
+          app-dir: ~/project/movies-services
           name: Run tests
           command: npm run test
 
