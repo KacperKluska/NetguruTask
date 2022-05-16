@@ -1,6 +1,6 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import axios from 'axios';
-import { Movie } from 'src/entities/movie.entity';
+import { Movie } from '../entities/movie.entity';
 import { UserPayload } from 'src/interfaces/userPayload';
 
 const OMDB_API_KEY = 'cdbf1f6a';
