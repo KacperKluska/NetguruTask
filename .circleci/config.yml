@@ -18,10 +18,10 @@ jobs:
       - image: cimg/node:16.10
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
+    working_directory: ~/movies-services
     steps:
       # Checkout the code as the first step.
       - checkout
-      - working_directory: ~/movies-services
       # Next, the node orb's install-packages step will install the dependencies from a package.json.
       # The orb install-packages step will also automatically cache them for faster future runs.
       - node/install-packages:
