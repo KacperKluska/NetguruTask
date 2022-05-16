@@ -30,10 +30,13 @@ jobs:
           pkg-manager: npm
       - run:
           name: Move to movie service
-          command: cd movies-service
+          command: cd movies-service; ls
+      - run:
+          name: Test path
+          command: ls
       - run:
           name: Run tests
-          command: npm test
+          command: cd movies-service; npm test
 
 workflows:
   # Below is the definition of your workflow.
