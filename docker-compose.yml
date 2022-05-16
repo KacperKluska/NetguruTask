@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  movies:
+    container_name: movies-service
+    build: "./movies-service"
+    volumes:
+      - ./movies-service:/app
+    ports:
+      - published: ${MOVIES_PORT:-3001}
+        target: 3001
+    depends_on:
+      - db
+      - auth
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+      JWT_SECRET: ${JWT_SECRET}
+  db:
+    container_name: db
+    image: "postgres:12"
+    ports:
+      - published: ${DB_PORT:-5432}
+        target: 5432
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+  auth:
+    container_name: auth-service
+    command: node src/server.js
+    build:
+      context: .
+      dockerfile: auth-service/Dockerfile
+    ports:
+      - published: ${AUTH_PORT:-3000}
+        target: 3000
+    volumes:
+      - ./auth-service:/app/
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
