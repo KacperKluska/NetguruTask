@@ -28,7 +28,7 @@ jobs:
           app-dir: ~/project/movies-service
           pkg-manager: npm
       - run:
-          app-dir: ~/project/movies-service
+          app-dir: ~/project/movies-services
           name: Run tests
           command: npm run test
 
