@@ -18,6 +18,7 @@ jobs:
       - image: cimg/node:16.10
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
+    working_directory: ~/project/movies-service
     steps:
       # Checkout the code as the first step.
       - checkout
@@ -25,7 +26,6 @@ jobs:
       # The orb install-packages step will also automatically cache them for faster future runs.
       - node/install-packages:
           # If you are using yarn, change the line below from "npm" to "yarn"
-          app-dir: ~/project/movies-service
           pkg-manager: npm
       - run:
           name: Run tests
