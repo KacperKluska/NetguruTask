@@ -13,6 +13,7 @@ export class MoviesService {
       movies = await Movie.find({ where: { userId: user.userId } });
     } catch (err) {
       console.error('An error ocurred:', err);
+      return 'An error ocurred when tried to get a user movie list.';
     }
     if (!movies?.length) return "You don't have any movies posted yet!";
     return movies;
@@ -43,7 +44,7 @@ export class MoviesService {
       return 'You have already posted 5 movies this month. Get premium to post more movies.';
 
     try {
-      const result = await axios(
+      const result = await axios.get(
         `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${movieTitle}`,
       );
 
@@ -71,6 +72,7 @@ export class MoviesService {
       Movie.save(movie);
     } catch (err) {
       console.error('An error ocurred:', err);
+      return `There was an error. Couldn't post a movie to a server.`;
     }
 
     return `Movie posted successfully`;
