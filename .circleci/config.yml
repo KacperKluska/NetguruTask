@@ -29,6 +29,7 @@ jobs:
           app-dir: ~/netgurutask/movies-service
           pkg-manager: npm
       - run:
+          app-dir: ~/netgurutask/movies-service
           name: Run tests
           command: npm test
 
