@@ -21,8 +21,7 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
-      - persist_to_workspace:
-          root: ~/project/movies-service
+      - app-dir: ~/project/movies-service
       # Next, the node orb's install-packages step will install the dependencies from a package.json.
       # The orb install-packages step will also automatically cache them for faster future runs.
       - node/install-packages:
